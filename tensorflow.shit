@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# One wishes you could just "apt-get install tensorflow" but you have to go Googling,
+# digging through devtalk forums, blogs, to find out you have to do all of this.
+
+# I actually got asked the following questions within a week:
+# How long does it take to install TensorFlow on a Nano?
+# Is it hard to install TensorFlow on a Nano?
+
+# It should NEVER be hard to install anything. These shouldn't even be questions. You should be able to
+# apt-get anything on your mind and it should just magically show up on your system. Always. 100% of the time.
+# No questions asked.
+
+# The SYSTEM should figure out how to install it, NOT the community, NOT me, NOT you.
+
+# We have autonomous cars, but we can't figure out how to autonomously install a software package.
+# Debian provides a package management system that can be level 5 autonomous, and manages all dependencies for you.
+# Unfortunately, people aren't willing to use it, apparently.
+
+# So we have to deal with this shit. Good luck memorizing this.
+
+sudo apt-get update
+sudo apt-get install -y libhdf5-serial-dev hdf5-tools python3-pip python-pip zlib1g-dev zip libjpeg8-dev libhdf5-dev
+
+sudo pip3 install -U pip
+
+sudo pip2 install -U numpy grpcio absl-py py-cpuinfo psutil portpicker grpcio six mock requests gast h5py astor termcolor
+sudo pip2 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v42 tensorflow-gpu
+
+sudo pip3 install -U numpy grpcio absl-py py-cpuinfo psutil portpicker grpcio six mock requests gast h5py astor termcolor
+sudo pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v42 tensorflow-gpu
